@@ -25,11 +25,11 @@ template "/etc/avahi/avahi-daemon.conf" do
   owner  "root"
   group  "root"
   variables(
-    :server_conf => node.default[:avahi][:daemon][:conf][:server],
-    :wide_area_conf => node.default[:avahi][:daemon][:conf][:wide_area],
-    :publish_conf => node.default[:avahi][:daemon][:conf][:publish],
-    :reflector_conf => node.default[:avahi][:daemon][:conf][:reflector],
-    :rlimits_conf => node.default[:avahi][:daemon][:conf][:rlimits]
+    :server_conf => node[:avahi][:daemon][:conf][:server],
+    :wide_area_conf => node[:avahi][:daemon][:conf][:wide_area],
+    :publish_conf => node[:avahi][:daemon][:conf][:publish],
+    :reflector_conf => node[:avahi][:daemon][:conf][:reflector],
+    :rlimits_conf => node[:avahi][:daemon][:conf][:rlimits]
   )
 end
 
