@@ -19,4 +19,5 @@
 
 node.default[:avahi][:aliases] = {}
 node.default[:avahi][:aliases][:package_url] = "git+git://github.com/till/avahi-aliases.git@topics/make-it-run"
+node.default[:avahi][:aliases][:subdomains] = []
 node.default[:avahi][:aliases][:domains] = []

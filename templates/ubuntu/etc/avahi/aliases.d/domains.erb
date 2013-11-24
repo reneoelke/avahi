@@ -1,15 +1,7 @@
-<%
-if !@domains.kind_of?(Array)
-  @domains.each_pair do |app, domain|
--%>
+<% @subdomains.each do |subdomain| -%>
+<%= "#{subdomain}.#{node[:hostname]}.local" %>
+<% end -%>
+
+<% @domains.each do |domain| -%>
 <%= domain %>
-<%
-  end
-else
-  @domains.each do |domain|
--%>
-<%= domain %>
-<%
-  end
-end
--%>
+<% end -%>

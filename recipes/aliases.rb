@@ -40,6 +40,7 @@ template "/etc/avahi/aliases.d/domains" do
   owner  "root"
   group  "root"
   variables(
+    :subdomains => node[:avahi][:aliases][:subdomains],
     :domains => node[:avahi][:aliases][:domains]
   )
   notifies :restart, "service[avahi-aliases]"
