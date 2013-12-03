@@ -34,6 +34,7 @@ template "/etc/avahi/avahi-daemon.conf" do
 end
 
 service "avahi-daemon" do
-  supports :status => true, :restart => true, :reload => false
-  action [ :restart ]
+  provider Chef::Provider::Service::Upstart
+  supports :start => true, :stop => true, :restart => true, :status => true, :reload => false
+  action :restart
 end
