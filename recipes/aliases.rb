@@ -28,12 +28,6 @@ execute "Install python library avahi-aliases" do
   command "pip install --force-reinstall #{node[:avahi][:aliases][:package_url]}"
 end
 
-service "avahi-aliases" do
-  provider Chef::Provider::Service::Upstart
-  supports [:start, :stop, :restart]
-  action :nothing
-end
-
 template "/etc/avahi/aliases.d/domains" do
   source "etc/avahi/aliases.d/domains.erb"
   mode   "0644"
@@ -43,8 +37,10 @@ template "/etc/avahi/aliases.d/domains" do
     :subdomains => node[:avahi][:aliases][:subdomains],
     :domains => node[:avahi][:aliases][:domains]
   )
-  notifies :restart, "service[avahi-aliases]"
-  # not_if do
-  #   node[:avahi][:aliases][:domains].empty?
-  # end
+end
+
+service "avahi-aliases" do
+  provider Chef::Provider::Service::Upstart
+  supports :start => true, :stop => true, :restart => true, :status => true, :reload => false
+  action :restart
 end
