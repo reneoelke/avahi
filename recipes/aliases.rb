@@ -24,6 +24,10 @@ execute "Upgrade pip" do
   command "pip install --upgrade pip"
 end
 
+execute "Upgrade setuptools" do
+  command "pip install --no-use-wheel --upgrade setuptools"
+end
+
 execute "Install python library avahi-aliases" do
   command "pip install --force-reinstall #{node[:avahi][:aliases][:package_url]}"
 end
