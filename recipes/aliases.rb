@@ -18,14 +18,13 @@
 #
 
 package "python-avahi"
-package "python-pip"
 
-execute "Upgrade pip" do
-  command "pip install --upgrade pip"
+remote_file "#{Chef::Config[:file_cache_path]}/get-pip.py" do
+  source "#{node[:avahi][:aliases][:pip_url]}"
 end
-
-execute "Upgrade setuptools" do
-  command "pip install --no-use-wheel --upgrade setuptools"
+execute "Install pip" do
+  cwd "#{Chef::Config[:file_cache_path]}"
+  command "python get-pip.py"
 end
 
 execute "Install python library avahi-aliases" do
