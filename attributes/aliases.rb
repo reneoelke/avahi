@@ -19,5 +19,6 @@
 
 node.default[:avahi][:aliases] = {}
 node.default[:avahi][:aliases][:package_url] = "git+https://github.com/till/avahi-aliases.git@topics/make-it-run"
+node.default[:avahi][:aliases][:pip_url] = "https://raw.github.com/pypa/pip/1.5.4/contrib/get-pip.py"
 node.default[:avahi][:aliases][:subdomains] = []
 node.default[:avahi][:aliases][:domains] = []
