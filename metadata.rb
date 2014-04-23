@@ -1,3 +1,4 @@
+name              "avahi"
 maintainer        "foobugs Oelke & Eichner GbR"
 maintainer_email  "rene.oelke@foobugs.com"
 license           "Apache 2.0"
