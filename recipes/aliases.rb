@@ -18,6 +18,7 @@
 #
 
 package "python-avahi"
+package "python-daemon"
 
 remote_file "#{Chef::Config[:file_cache_path]}/get-pip.py" do
   source "#{node[:avahi][:aliases][:pip_url]}"
